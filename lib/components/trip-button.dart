@@ -5,12 +5,14 @@ class TripButton extends StatefulWidget {
   final Color fontColor;
   final Color backgroundColor;
   final bool secondary;
+  final GestureTapCallback onPressed;
 
   TripButton({
     @required this.text,
     this.fontColor,
     this.backgroundColor,
     this.secondary,
+    this.onPressed
   });
 
   @override
@@ -40,9 +42,7 @@ class _TripButtonState extends State<TripButton> {
             fontWeight: FontWeight.bold
           ),
         ),
-        onPressed: () {
-          print(widget.text);
-        },
+        onPressed: widget.onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),
