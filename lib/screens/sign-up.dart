@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tripLogin/components/trip-button.dart';
+import 'package:tripLogin/components/trip-input.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -10,7 +11,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -21,13 +22,27 @@ class _SignUpState extends State<SignUp> {
               fontSize: 30
             )
           ),
-          // Container(
-          //   child: Image.asset(
-          //     "assets/images/capture.png",
-          //     height: 68,
-          //     width: 66,
-          //   ),
-          // )
+          TripInput(
+            label: "Email",
+            iconePath: "assets/icons/email.svg",
+            type: TextInputType.emailAddress,
+          ),
+          TripInput(
+            label: "Username",
+            iconePath: "assets/icons/user.svg",
+            type: TextInputType.text,
+          ),
+          TripInput(
+            label: "Password",
+            iconePath: "assets/icons/password.svg",
+            obscure: true,
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: TripButton(
+              text: "Sign up",
+            ),
+          )
         ],
       )
     );
