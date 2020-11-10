@@ -5,12 +5,14 @@ class TripButton extends StatefulWidget {
   final Color fontColor;
   final Color backgroundColor;
   final bool secondary;
+  final GestureTapCallback onPressed;
 
   TripButton({
     @required this.text,
     this.fontColor,
     this.backgroundColor,
     this.secondary,
+    this.onPressed
   });
 
   @override
@@ -20,12 +22,12 @@ class TripButton extends StatefulWidget {
 class _TripButtonState extends State<TripButton> {
   @override
   Widget build(BuildContext context) {
-    var _backgroundColor = Color(0xFFFF813D);
-    var _fontColor = Color(0xFFF7F7F7);
+    var _backgroundColor = Color(0xFFFFFFFF);
+    var _fontColor = Color(0xFF4E3B73);
 
     if(widget.secondary != null && widget.secondary){
-      _fontColor = Color(0xFFFF813D);
-      _backgroundColor = Color(0xFFF7F7F7);
+      _fontColor = Color(0xFFFFFFFF);
+      _backgroundColor = Color(0xFFA79BBF);
     }
 
     return Container(
@@ -40,9 +42,7 @@ class _TripButtonState extends State<TripButton> {
             fontWeight: FontWeight.bold
           ),
         ),
-        onPressed: () {
-          print(widget.text);
-        },
+        onPressed: widget.onPressed,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(50),
         ),

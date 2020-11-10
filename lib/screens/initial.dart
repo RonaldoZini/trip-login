@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tripLogin/components/trip-button.dart';
+import 'package:tripLogin/components/trip-modal.dart';
+import 'package:tripLogin/screens/sign-in.dart';
+import 'package:tripLogin/screens/sign-up.dart';
 
-class Login extends StatelessWidget {
+class Initial extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +60,10 @@ class Login extends StatelessWidget {
                       padding: EdgeInsets.only(left : 40, right: 40),
                       child: TripButton(
                         text: "Sign up",
+                        secondary: true,
+                        onPressed: () {
+                          TripModal.showModalSheet(context, SignUp());
+                        }
                       ),
                     ),
                   ),
@@ -66,7 +74,10 @@ class Login extends StatelessWidget {
                       padding: EdgeInsets.only(left : 40, right: 40),
                       child: TripButton(
                         text: "Sign in",
-                        secondary: true,
+                        onPressed: () {
+                          double _height = 0.7;
+                          TripModal.showModalSheet(context, SignIn(), _height);
+                        }
                       ),
                     ),
                   ),
