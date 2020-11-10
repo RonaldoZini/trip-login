@@ -20,7 +20,7 @@ class TripInput extends StatefulWidget {
 }
 
 class _TripInputState extends State<TripInput> {
-  Color _color = Color(0xFF005955);
+  Color _color = Color(0xFFA79BBF);
 
   @override
   Widget build(BuildContext context) {

@@ -4,6 +4,8 @@ import 'package:tripLogin/screens/initial.dart';
 import 'routes/router.dart' as router;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  
   runApp(MaterialApp(
       home: Initial(),
       debugShowCheckedModeBanner: false,
@@ -15,3 +17,4 @@ void main() {
       initialRoute: InitialRoute,
     ));
 }
+

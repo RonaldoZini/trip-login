@@ -22,12 +22,12 @@ class TripButton extends StatefulWidget {
 class _TripButtonState extends State<TripButton> {
   @override
   Widget build(BuildContext context) {
-    var _backgroundColor = Color(0xFFFF813D);
-    var _fontColor = Color(0xFFF7F7F7);
+    var _backgroundColor = Color(0xFFFFFFFF);
+    var _fontColor = Color(0xFF4E3B73);
 
     if(widget.secondary != null && widget.secondary){
-      _fontColor = Color(0xFFFF813D);
-      _backgroundColor = Color(0xFFF7F7F7);
+      _fontColor = Color(0xFFFFFFFF);
+      _backgroundColor = Color(0xFFA79BBF);
     }
 
     return Container(
