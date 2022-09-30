@@ -2,11 +2,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class TripCameraPreview extends StatefulWidget {
-  final String? imagePath;
-  final void Function(String? path)? callback;
+  final String imagePath;
+  final void Function(String path)? callback;
 
   const TripCameraPreview({
-    this.imagePath,
+    required this.imagePath,
     this.callback
   });
 
@@ -21,7 +21,7 @@ class _TripCameraPreviewState extends State<TripCameraPreview> {
       body: Stack(
         children: [
           Image.file(
-            File(widget.imagePath!),
+            File(widget.imagePath),
             fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height,
           ),

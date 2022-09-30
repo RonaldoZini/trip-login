@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tripLogin/components/trip-button.dart';
 import 'package:tripLogin/components/trip-input.dart';
+import 'package:tripLogin/controllers/sign-in.dart';
+import 'package:tripLogin/screens/home.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -10,6 +12,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  SignInController signInController = new SignInController();
+
   Widget build(BuildContext context) {
     return Container(
       child: Column(
@@ -32,11 +36,13 @@ class _SignInState extends State<SignIn> {
             label: "Email",
             iconePath: "assets/icons/email.svg",
             type: TextInputType.emailAddress,
+            textController: signInController.emailTextController,
           ),
           TripInput(
             label: "Password",
             iconePath: "assets/icons/password.svg",
             obscure: true,
+            textController: signInController.passwordTextController,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -57,6 +63,15 @@ class _SignInState extends State<SignIn> {
             padding: EdgeInsets.only(top: 40),
             child: TripButton(
               text: "Sign in",
+              onPressed: () => {
+                signInController.signIn(),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                )
+              },
             ),
           ),
           Row(

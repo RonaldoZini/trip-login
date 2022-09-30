@@ -1,19 +1,20 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TripInput extends StatefulWidget {
+  final TextEditingController textController;
   final String? label;
   final String? iconePath;
   final TextInputType? type;
   final bool obscure;
   
   TripInput({
+      required this.textController,
       this.label,
       this.iconePath,
       this.type,
-      this.obscure = false
+      this.obscure = false,
   }) : assert(obscure != null);
   @override
   _TripInputState createState() => _TripInputState();
@@ -21,6 +22,12 @@ class TripInput extends StatefulWidget {
 
 class _TripInputState extends State<TripInput> {
   Color _color = Color(0xFFA79BBF);
+  
+  @override
+  void dispose() {
+    widget.textController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +47,7 @@ class _TripInputState extends State<TripInput> {
                   Padding(
                     padding: EdgeInsets.only(top: 10),
                     child: TextField(
+                      controller: widget.textController,
                       obscureText: widget.obscure,
                       keyboardType: widget.type,
                       cursorColor: Colors.white,
