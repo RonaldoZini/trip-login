@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 class TripCameraPreview extends StatefulWidget {
-  final String imagePath;
-  final void Function(String path) callback;
+  final String? imagePath;
+  final void Function(String? path)? callback;
 
   const TripCameraPreview({
     this.imagePath,
@@ -21,7 +21,7 @@ class _TripCameraPreviewState extends State<TripCameraPreview> {
       body: Stack(
         children: [
           Image.file(
-            File(widget.imagePath),
+            File(widget.imagePath!),
             fit: BoxFit.cover,
             height: MediaQuery.of(context).size.height,
           ),
@@ -47,7 +47,7 @@ class _TripCameraPreviewState extends State<TripCameraPreview> {
           color: Color(0xFFFFFFFF),
         ),
         onPressed: () async {
-          widget.callback(widget.imagePath);
+          widget.callback!(widget.imagePath);
 
           var count = 0;
           Navigator.popUntil(context, (route) {

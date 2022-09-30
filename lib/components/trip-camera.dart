@@ -6,10 +6,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:tripLogin/components/trip-camera-preview.dart';
 
 class TripCamera extends StatefulWidget {
-  final void Function(String path) callback;
+  final void Function(String path)? callback;
 
   const TripCamera({
-    Key key,
+    Key? key,
     this.callback
   }) : super(key: key);
 
@@ -18,8 +18,8 @@ class TripCamera extends StatefulWidget {
 }
 
 class TripCameraState extends State<TripCamera> {
-  CameraController _controller;
-  Future<void> _initializeControllerFuture;
+  late CameraController _controller;
+  Future<void>? _initializeControllerFuture;
   var isCameraReady = false;
   
   @override
@@ -59,18 +59,18 @@ class TripCameraState extends State<TripCamera> {
     try {
       await _initializeControllerFuture;
 
-      final path = join(
-        (await getTemporaryDirectory()).path,
-        '${DateTime.now()}.png',
-      );
+      // final path = join(
+      //   (await getTemporaryDirectory()).path,
+      //   '${DateTime.now()}.png',
+      // );
 
-      await _controller.takePicture(path);
+      final image = await _controller.takePicture();
 
       Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => TripCameraPreview(
-            imagePath: path,
+            imagePath: image.path,
             callback: widget.callback
           ),
         ),

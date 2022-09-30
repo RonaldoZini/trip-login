@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class TripInput extends StatefulWidget {
-  final String label;
-  final String iconePath;
-  final TextInputType type;
+  final String? label;
+  final String? iconePath;
+  final TextInputType? type;
   final bool obscure;
   
   TripInput({
@@ -31,7 +31,7 @@ class _TripInputState extends State<TripInput> {
               children: [
                 Stack(children: [
                   Text(
-                    widget.label,
+                    widget.label!,
                     style : TextStyle(
                       color: _color,
                       fontSize: 16,
@@ -50,7 +50,7 @@ class _TripInputState extends State<TripInput> {
                       decoration: InputDecoration(
                         prefixIcon: Padding(
                           padding: EdgeInsets.only(left: 10, right: 15),
-                          child: SvgPicture.asset(widget.iconePath),
+                          child: SvgPicture.asset(widget.iconePath!),
                         ),
                         prefixIconConstraints: BoxConstraints(maxHeight: 40),
                         enabledBorder: UnderlineInputBorder(

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class TripButton extends StatefulWidget {
   final String text;
-  final Color fontColor;
-  final Color backgroundColor;
-  final bool secondary;
-  final GestureTapCallback onPressed;
+  final Color? fontColor;
+  final Color? backgroundColor;
+  final bool? secondary;
+  final GestureTapCallback? onPressed;
 
   TripButton({
-    @required this.text,
+    required this.text,
     this.fontColor,
     this.backgroundColor,
     this.secondary,
@@ -25,7 +25,7 @@ class _TripButtonState extends State<TripButton> {
     var _backgroundColor = Color(0xFFFFFFFF);
     var _fontColor = Color(0xFF4E3B73);
 
-    if(widget.secondary != null && widget.secondary){
+    if(widget.secondary != null && widget.secondary!){
       _fontColor = Color(0xFFFFFFFF);
       _backgroundColor = Color(0xFFA79BBF);
     }

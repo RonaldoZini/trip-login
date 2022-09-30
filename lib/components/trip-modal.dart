@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class TripModal {
 
-  static showModalSheet(context, Widget content, [double height]) {
+  static showModalSheet(context, Widget content, [double? height]) {
     bool _keyboardIsVisible(context) {
       return !(MediaQuery.of(context).viewInsets.bottom == 0.0);
     }
